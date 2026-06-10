@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Attack Awareness - Cybersecurity Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a2847;
+            --accent: #FF6B35;
+            --accent-dark: #E55A2B;
+            --light-blue: #E8F4F8;
+            --light-bg: #F5F5F5;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --success: #2ECC71;
+            --warning: #F39C12;
+            --danger: #E74C3C;
+            --border: #E0E0E0;
+            --gradient: linear-gradient(135deg, #1a2847 0%, #2d4a7f 100%);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: white;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .stat-row {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        section.light {
+            background: var(--light-bg);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+        }
+
+        /* What is Phishing */
+        .phishing-def {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        .phishing-visual {
+            background: linear-gradient(135deg, var(--light-blue) 0%, #fff 100%);
+            padding: 2rem;
+            border-radius: 12px;
+            position: relative;
+            border: 2px solid #d0e8f2;
+        }
+
+        .email-mockup {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            font-size: 0.85rem;
+        }
+
+        .email-header {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .email-line {
+            margin: 0.4rem 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .email-from {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .suspicious {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        .email-subject {
+            background: var(--light-bg);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+        }
+
+        .email-body {
+            padding: 1.5rem;
+            line-height: 1.5;
+        }
+
+        .phishing-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .phishing-content p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Red Flags */
+        .red-flags-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .flag-card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid var(--accent);
+        }
+
+        .flag-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(255, 107, 53, 0.15);
+            border-color: var(--accent);
+        }
+
+        .flag-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .flag-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .flag-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Types of Phishing */
+        .phishing-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .type-card {
+            background: linear-gradient(135deg, #fff 0%, var(--light-bg) 100%);
+            border-radius: 12px;
+            padding: 2.5rem;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+        }
+
+        .type-label {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .type-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .type-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .example {
+            background: white;
+            padding: 1rem;
+            border-left: 3px solid var(--accent);
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--text-light);
+        }
+
+        /* Interactive Section */
+        .email-checker {
+            background: var(--light-blue);
+            border-radius: 12px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .checker-input {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.8rem 1rem;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        button {
+            padding: 0.8rem 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .result {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result.safe {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid var(--success);
+            color: #27ae60;
+        }
+
+        .result.suspicious {
+            background: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--danger);
+            color: #c0392b;
+        }
+
+        /* Best Practices */
+        .practices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .practice-item {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .practice-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.1);
+        }
+
+        .practice-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .practice-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+        }
+
+        .practice-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Response */
+        .response-timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 49px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-step {
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--gradient);
+            color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--accent);
+            padding: 1rem 2.5rem;
+            font-weight: 700;
+        }
+
+        .cta-button:hover {
+            background: var(--light-bg);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .phishing-def {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .stat-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero::before {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Utility */
+        .hidden {
+            display: none;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🛡️ PhishShield</div>
+            <ul class="nav-links">
+                <li><a href="#what">What is Phishing</a></li>
+                <li><a href="#types">Types</a></li>
+                <li><a href="#recognize">Recognize</a></li>
+                <li><a href="#protect">Protect</a></li>
+                <li><a href="#respond">Respond</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Phishing: The #1 Cyber Threat</h1>
+            <p class="hero-subtitle">Learn to identify, prevent, and respond to phishing attacks that target millions every day</p>
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-number">3.4B</div>
+                    <div class="stat-label">Phishing emails sent daily</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">90%</div>
+                    <div class="stat-label">Breaches start with phishing</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$12M</div>
+                    <div class="stat-label">Avg cost per breach</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Phishing -->
+    <section class="light" id="what">
+        <div class="container">
+            <h2 class="section-title">What is Phishing?</h2>
+            <p class="section-subtitle">A social engineering attack that tricks users into revealing sensitive information</p>
+            
+            <div class="phishing-def">
+                <div class="phishing-content">
+                    <h3>Understanding the Threat</h3>
+                    <p>Phishing is a cyberattack method where attackers impersonate legitimate organizations through email, text, or phone calls to deceive users into:</p>
+                    <ul style="margin: 1.5rem 0 1.5rem 2rem; color: var(--text-light); line-height: 1.8;">
+                        <li>Clicking malicious links</li>
+                        <li>Downloading malware-infected attachments</li>
+                        <li>Entering passwords or financial information</li>
+                        <li>Transferring money to fraudulent accounts</li>
+                        <li>Providing personal or corporate data</li>
+                    </ul>
+                    <p><strong>Why it works:</strong> Phishing exploits human psychology and trust rather than technical vulnerabilities, making it difficult to defend against with technology alone.</p>
+                </div>
+
+                <div class="phishing-visual">
+                    <div class="email-mockup">
+                        <div class="email-header">
+                            <div class="email-line"><span class="email-from">From:</span> <span class="suspicious">security-verify@paypa1.com</span></div>
+                            <div class="email-line"><span class="email-from">To:</span> you@company.com</div>
+                            <div class="email-line"><span class="email-from">Date:</span> Jun 10, 2024 3:45 PM</div>
+                        </div>
+                        <div class="email-subject">
+                            ⚠️ Verify Your Account Immediately
+                        </div>
+                        <div class="email-body">
+                            <p>Dear Customer,</p>
+                            <p>Your account has been flagged for unusual activity. Click below to verify your identity immediately or your account will be closed.</p>
+                            <p style="margin-top: 1.5rem; margin-bottom: 1.5rem;">
+                                <button style="padding: 0.6rem 1.5rem; margin: 0;">Verify Now</button>
+                            </p>
+                            <p style="font-size: 0.75rem; color: #999;">
+                                ⚠️ Red Flags: Urgent tone, misspelled domain, generic greeting
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Red Flags -->
+    <section id="recognize">
+        <div class="container">
+            <h2 class="section-title">Red Flags to Recognize</h2>
+            <p class="section-subtitle">Learn the warning signs that indicate a phishing attempt</p>
+            
+            <div class="red-flags-grid">
+                <div class="flag-card">
+                    <div class="flag-icon">⚠️</div>
+                    <h4>Urgent Language</h4>
+                    <p>"Verify immediately," "Account will be closed," "Confirm within 24 hours" — pressure tactics to bypass your critical thinking</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">🔗</div>
+                    <h4>Suspicious Links</h4>
+                    <p>Hover over links to see the real URL. Mismatched text and destination URLs are a major red flag. Watch for slight domain variations.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">📧</div>
+                    <h4>Unfamiliar Sender</h4>
+                    <p>Check the sender's email address carefully. Legitimate companies won't ask sensitive info via email. Domain spoofing is common.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">💰</div>
+                    <h4>Financial Requests</h4>
+                    <p>Requests for payment, bank details, or credit card information. Banks never ask for these via email.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">📎</div>
+                    <h4>Unexpected Attachments</h4>
+                    <p>Suspicious file attachments (.exe, .zip, .scr). Even PDFs and documents can contain malware. Don't open if unexpected.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">🎭</div>
+                    <h4>Generic Greetings</h4>
+                    <p>"Dear Customer" or "Dear User" instead of your name. Legitimate companies personalize their communications.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">✍️</div>
+                    <h4>Grammar Errors</h4>
+                    <p>Spelling mistakes, awkward phrasing, and poor grammar. Legitimate companies maintain professional standards.</p>
+                </div>
+
+                <div class="flag-card">
+                    <div class="flag-icon">🌐</div>
+                    <h4>Mismatched Website</h4>
+                    <p>Website URL doesn't match the company name or has slight variations. Check HTTPS and padlock icon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Types of Phishing -->
+    <section class="light" id="types">
+        <div class="container">
+            <h2 class="section-title">Types of Phishing Attacks</h2>
+            <p class="section-subtitle">Different attack vectors and methods used by cybercriminals</p>
+            
+            <div class="phishing-types">
+                <div class="type-card">
+                    <div class="type-label">Email Attack</div>
+                    <h4>Email Phishing</h4>
+                    <p>Mass emails sent to random recipients impersonating legitimate companies. Lowest sophistication but highest volume.</p>
+                    <div class="example">"Your Apple ID will be closed unless you verify..."</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-label">Targeted Attack</div>
+                    <h4>Spearphishing</h4>
+                    <p>Highly targeted attacks against specific individuals using personal information. Research-based and convincing.</p>
+                    <div class="example">"Hey John, can you approve this invoice from our vendor before you leave?"</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-label">CEO Attack</div>
+                    <h4>Whaling</h4>
+                    <p>Targets high-value individuals like executives. Impersonates senior leadership asking for urgent financial transfers.</p>
+                    <div class="example">"CEO here, can you discreetly wire $50K for a confidential transaction?"</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-label">Deception</div>
+                    <h4>Clone Phishing</h4>
+                    <p>Clones legitimate emails but replaces links/attachments with malicious versions. Appears authentic to recipients.</p>
+                    <div class="example">Duplicate of a real invoice with malicious payment details</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-label">Technical Attack</div>
+                    <h4>SMishing & Vishing</h4>
+                    <p>SMS text messages (SMishing) or voice calls (Vishing) pretending to be from banks or services requesting action.</p>
+                    <div class="example">"This is your bank. Confirm your card by calling 1-800-..."</div>
+                </div>
+
+                <div class="type-card">
+                    <div class="type-label">Site Deception</div>
+                    <h4>Evil Twin Hotspots</h4>
+                    <p>Fake WiFi networks mimicking legitimate businesses that capture login credentials when users connect.</p>
+                    <div class="example">"CoffeeShop_Free" WiFi that's actually a attacker's network</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Verification Tool -->
+    <section id="protect">
+        <div class="container">
+            <h2 class="section-title">Protect Yourself</h2>
+            <p class="section-subtitle">Interactive tools and best practices to stay safe</p>
+
+            <div class="email-checker">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">🔍 Email Red Flag Analyzer</h3>
+                <p style="color: var(--text-dark); margin-bottom: 1.5rem;">Check if this email looks suspicious. Type in phrases or describe what you see:</p>
+                
+                <div class="checker-input">
+                    <input type="text" id="emailInput" placeholder="e.g., 'Click here to verify your account immediately' or 'sender: security@bankk.com'">
+                    <button onclick="analyzeEmail()">Analyze</button>
+                </div>
+
+                <div id="analysisResult" class="result"></div>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1.5rem; color: var(--primary);">Best Practices</h3>
+            <div class="practices-grid">
+                <div class="practice-item">
+                    <div class="practice-icon">👁️</div>
+                    <h4>Verify Senders</h4>
+                    <p>Always check the full email address and hover over links to see actual URLs before clicking.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">⏱️</div>
+                    <h4>Don't Rush</h4>
+                    <p>Legitimate companies don't create urgent deadlines. Take time to verify suspicious requests through official channels.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">🔐</div>
+                    <h4>Use Multi-Factor Authentication</h4>
+                    <p>Enable 2FA on all important accounts. Even if credentials are stolen, accounts remain protected.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">🔄</div>
+                    <h4>Update Regularly</h4>
+                    <p>Keep software, OS, and security tools updated to patch vulnerabilities exploited by attackers.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">🛡️</div>
+                    <h4>Use Security Tools</h4>
+                    <p>Deploy email filters, anti-malware software, and browser extensions that identify suspicious sites.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">📞</div>
+                    <h4>Call Back Directly</h4>
+                    <p>When in doubt, call the organization using a number from their official website, not the email.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">👨‍🏫</div>
+                    <h4>Stay Educated</h4>
+                    <p>Attend security awareness training and stay informed about new attack methods and threats.</p>
+                </div>
+
+                <div class="practice-item">
+                    <div class="practice-icon">🚫</div>
+                    <h4>Don't Share Passwords</h4>
+                    <p>No legitimate organization will ask for your password via email. Ever. It's never acceptable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Response Plan -->
+    <section class="light" id="respond">
+        <div class="container">
+            <h2 class="section-title">If You Suspect Phishing</h2>
+            <p class="section-subtitle">Step-by-step response to minimize damage</p>
+
+            <div class="response-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Stop & Don't Click</h4>
+                        <p>Don't click any links or download attachments. Don't reply to the email. Your first instinct to verify is correct.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Verify Independently</h4>
+                        <p>Contact the organization using contact information from their official website, not from the suspicious email. Ask if they sent it.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Report to IT/Security</h4>
+                        <p>Forward the suspicious email to your organization's security team or IT department. They can investigate and block similar attacks.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">4</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Report to the Organization</h4>
+                        <p>Report phishing to the legitimate company being impersonated. Most have abuse/phishing@company.com addresses. They'll help others.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">5</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Change Your Password</h4>
+                        <p>If you entered credentials, change your password immediately from a clean computer. If you suspect a breach, contact your bank/provider.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-step">
+                        <div class="step-number">6</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Monitor Accounts</h4>
+                        <p>Watch your financial and email accounts for suspicious activity. Consider placing a fraud alert with credit bureaus if identity theft is suspected.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h3>When In Doubt, Reach Out</h3>
+                <p>It's always better to ask for verification than to fall victim to a phishing attack</p>
+                <button class="cta-button" onclick="alert('In a real scenario, this would direct to your security team contact page')">Contact Security Team</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>💡 Phishing Awareness Guide • Cybersecurity Education • Stay Alert, Stay Safe</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Last Updated: June 2024 • Report Threats: security@yourorganization.com</p>
+    </footer>
+
+    <script>
+        function analyzeEmail() {
+            const input = document.getElementById('emailInput').value.toLowerCase();
+            const resultDiv = document.getElementById('analysisResult');
+            
+            const suspiciousKeywords = [
+                'verify', 'confirm', 'urgent', 'immediately', 'click here', 'act now',
+                'account closed', 'account locked', 'suspended', 'unusual activity',
+                'update payment', 'confirm identity', 'reset password',
+                'limit exceeded', 'security alert'
+            ];
+
+            const suspiciousDomains = [
+                'paypa1', 'amazin', 'appleid', 'gogle', 'microsft',
+                'yourbank', 'mail@', 'noreply'
+            ];
+
+            let suspicionScore = 0;
+            let flags = [];
+
+            // Check for suspicious keywords
+            suspiciousKeywords.forEach(keyword => {
+                if (input.includes(keyword)) {
+                    suspicionScore += 20;
+                    flags.push(`"${keyword}" is commonly used in phishing emails`);
+                }
+            });
+
+            // Check for suspicious domains
+            suspiciousDomains.forEach(domain => {
+                if (input.includes(domain)) {
+                    suspicionScore += 25;
+                    flags.push(`"${domain}" resembles a spoofed domain`);
+                }
+            });
+
+            // Check for generic greetings
+            if (input.includes('dear user') || input.includes('dear customer')) {
+                suspicionScore += 15;
+                flags.push('Generic greeting instead of personalization');
+            }
+
+            // Check for grammar/spelling indicators
+            if (input.includes('plz') || input.includes('ur') || input.includes('thru')) {
+                suspicionScore += 10;
+                flags.push('Informal language or spelling errors detected');
+            }
+
+            // Display result
+            resultDiv.classList.add('show');
+            
+            if (suspicionScore === 0) {
+                resultDiv.className = 'result show safe';
+                resultDiv.innerHTML = `
+                    <strong>✅ Low Risk</strong><br>
+                    This email doesn't show obvious red flags, but always be cautious. When in doubt, verify independently.
+                `;
+            } else if (suspicionScore < 40) {
+                resultDiv.className = 'result show suspicious';
+                resultDiv.innerHTML = `
+                    <strong>⚠️ Moderate Risk</strong><br>
+                    This email has some concerning characteristics:<br>
+                    <ul style="margin: 0.8rem 0 0 1.2rem;">
+                        ${flags.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    Verify this email before taking action.
+                `;
+            } else {
+                resultDiv.className = 'result show suspicious';
+                resultDiv.innerHTML = `
+                    <strong>🚨 High Risk - Likely Phishing</strong><br>
+                    This email shows multiple phishing indicators:<br>
+                    <ul style="margin: 0.8rem 0 0 1.2rem;">
+                        ${flags.map(f => `<li>${f}</li>`).join('')}
+                    </ul>
+                    <strong>Do NOT click any links or download attachments. Report to your security team.</strong>
+                `;
+            }
+        }
+
+        // Add keyboard support
+        document.getElementById('emailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') analyzeEmail();
+        });
+    </script>
+</body>
+</html>
