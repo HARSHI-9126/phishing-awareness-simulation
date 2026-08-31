@@ -1,0 +1,120 @@
+1. Introduction
+
+Phishing is a common social engineering technique used by attackers to trick people into providing sensitive information 
+such as usernames, passwords, banking details, or personal information.
+As part of my Codevedx Cyber Security Internship, I studied phishing attacks and created an awareness-based demonstration
+in an authorized and controlled environment. The purpose of this task was to understand how phishing works and how users can identify and prevent such attacks.
+
+2. Objective
+The main objectives of this task were:
+
+To understand the concept of phishing.
+To study different types of phishing attacks.
+To understand how attackers manipulate users through social engineering.
+To identify common signs of phishing messages and websites.
+To understand how phishing attacks can affect individuals and organizations.
+To learn preventive measures against phishing.
+To promote cybersecurity awareness among users.
+  
+3. Types of Phishing
+  
+Email Phishing
+Attackers send fraudulent emails that appear to come from legitimate organizations.
+These emails may contain malicious links or request sensitive information.
+
+Spear Phishing
+Spear phishing is a targeted phishing attack designed for a specific individual or organization.
+The message is usually customized to appear more convincing.
+
+Smishing
+Smishing is phishing performed through SMS or text messages. 
+The message may contain a suspicious link or request personal information.
+
+Vishing
+Vishing is phishing performed through voice calls. Attackers may pretend to be bank representatives, 
+customer support agents, or other trusted individuals.
+
+Website Phishing
+A fake website may be designed to look similar to a legitimate website. Users may be tricked into entering usernames, 
+passwords, or other sensitive information.
+
+4. Methodology
+The phishing awareness activity was performed in a controlled and authorized environment.
+The general process included:
+
+Studying common phishing techniques.
+Creating a safe phishing demonstration for educational purposes.
+Analyzing the characteristics of suspicious messages and links.
+Identifying warning signs that users should look for.
+Demonstrating how a user could recognize a phishing attempt.
+Preparing security awareness recommendations.
+  
+5. Common Signs of Phishing
+Some common warning signs include:
+
+Unknown or suspicious sender addresses.
+Urgent messages demanding immediate action.
+Spelling and grammatical mistakes.
+Suspicious links or unexpected attachments.
+Requests for passwords or financial information.
+Offers that appear too good to be true.
+Messages creating fear or pressure.
+Website addresses that are slightly different from legitimate domains.
+  
+6. Phishing Awareness Demonstration
+A phishing awareness demonstration was conducted to show how attackers may attempt to gain a user's trust.
+The demonstration focused on recognizing suspicious messages and links rather than collecting real 
+credentials or targeting real users.
+Users were shown how to:
+Check the sender's address.
+Verify links before opening them.
+Avoid downloading unexpected attachments.
+Verify requests through official channels.
+Report suspicious messages.
+Avoid sharing passwords or OTPs.
+  
+7. Impact of Phishing
+Successful phishing attacks can result in:
+
+Theft of account credentials.
+Financial loss.
+Identity theft.
+Unauthorized access to systems.
+Data breaches.
+Installation of malicious software.
+Loss of organizational information.
+  
+8. Prevention Measures
+The following measures can help prevent phishing attacks:
+
+Do not click suspicious links.
+Verify the sender before responding.
+Never share passwords or OTPs.
+Use Multi-Factor Authentication (MFA).
+Keep operating systems and applications updated.
+Use spam and phishing filters.
+Check website addresses carefully.
+Report suspicious emails and messages.
+Provide regular cybersecurity awareness training.
+  
+9. Observations
+During the task, it was observed that phishing attacks often rely more on human behavior than technical vulnerabilities.
+Attackers commonly use urgency, fear, curiosity, rewards, or impersonation to convince users to take unsafe actions.
+Cybersecurity awareness and careful verification can significantly reduce the risk of successful phishing attacks.
+
+10. Ethical Considerations
+Phishing simulations and demonstrations should only be conducted with proper authorization and in a controlled environment.
+Real users should not be targeted without consent, and real passwords, OTPs, financial information, or other sensitive data 
+should never be collected during an educational demonstration.
+
+11. Conclusion
+This task helped me understand phishing attacks and the role of social engineering in cybersecurity. 
+I learned about different types of phishing, common warning signs, possible impacts, and preventive measures.
+The activity highlighted that cybersecurity is not only about technical protection but also about educating users
+to recognize and report suspicious activities.
+
+12. References
+OWASP Social Engineering
+CISA Phishing Guidance
+Microsoft Security Phishing Awareness Resources
+Cybersecurity Awareness Guidelines
